@@ -47,6 +47,14 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
 @implementation LoginViewController
 
 - (void)viewDidLoad {
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"login_background.png"] drawInRect:self.view.bounds];  
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
     [super viewDidLoad];
 
     [self setTitle:@"PojavLauncher"];
