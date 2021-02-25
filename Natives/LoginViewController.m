@@ -48,13 +48,6 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
 
 - (void)viewDidLoad {
     
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"login_background.png"] drawInRect:self.view.bounds];  
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-    
     [super viewDidLoad];
 
     [self setTitle:@"PojavLauncher"];
@@ -76,7 +69,12 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
     if(@available(iOS 13.0, *)) {
         [self traitCollectionDidChange:nil];
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        [[UIImage imageNamed:@"login_background.png"] drawInRect:self.view.bounds];  
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+
+        self.view.backgroundColor = [UIColor colorWithPatternImage:image];
     }
 
     CGFloat widthSplit = width / 4.0;
