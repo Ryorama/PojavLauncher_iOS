@@ -57,7 +57,7 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
 
     int width = (int) roundf(screenBounds.size.width);
-    int height = (int) roundf(screenBounds.size.height) - self.navigationController.navigationBar.frame.size.height;
+    int height = (int) roundf(screenBounds.size.height);
 
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
