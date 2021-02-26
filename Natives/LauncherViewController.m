@@ -17,16 +17,14 @@ UITextField* versionTextField;
 {
     [super viewDidLoad];
 
-    [self setTitle:@"PojavLauncher"];
-
     FILE *configver_file = fopen("/var/mobile/Documents/minecraft/config_ver.txt", "rw");
 
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     CGFloat screenScale = [[UIScreen mainScreen] scale];
     
     int width = (int) roundf(screenBounds.size.width);
-    int height = (int) roundf(screenBounds.size.height) - self.navigationController.navigationBar.frame.size.height;
-
+    int height = (int) roundf(screenBounds.size.height);
+    
     CGFloat widthSplit = width / 4.0;
     
     UIScrollView *scrollView = self.view = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
@@ -63,7 +61,7 @@ UITextField* versionTextField;
 
     UIButton *button_play = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button_play setTitle:@"Play" forState:UIControlStateNormal];
-    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0, (height + 550.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
+    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0, (height + 650.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
     button_play.backgroundColor = [UIColor colorWithRed:54/255.0 green:176/255.0 blue:48/255.0 alpha:1.0];
     button_play.layer.cornerRadius = 5;
     [button_play setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -74,13 +72,6 @@ UITextField* versionTextField;
 }
 
 -(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection API_AVAILABLE(ios(13.0)) {
-    if(@available(iOS 13.0, *)) {
-        if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-            self.view.backgroundColor = [UIColor blackColor];
-        } else {
-            self.view.backgroundColor = [UIColor whiteColor];
-        }
-    }
 }
 
 - (void)launchMinecraft:(id)sender
