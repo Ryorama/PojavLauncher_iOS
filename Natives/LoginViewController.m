@@ -49,8 +49,6 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setTitle:@"PojavLauncher"];
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(msaLoginCallback:) name:@"MSALoginCallback" object:nil];
 
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -73,6 +71,11 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 
     CGFloat widthSplit = width / 4.0;
+    
+    UIImageView *logoView = [[UIImageView alloc]initWithFrame:CGRectMake(widthSplit, (height - 25.0) / 2.0, 1030.0 / 2, 125.0 / 2)];
+    [logoView setImage:[UIImage imageNamed:@"logo.png"]];
+    [imgview setContentMode:UIViewContentModeScaleAspectFit];
+    [self.view addSubview:logoView];
     
     UIButton *button_login_mojang = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button_login_mojang setTitle:@"Mojang login" forState:UIControlStateNormal];
