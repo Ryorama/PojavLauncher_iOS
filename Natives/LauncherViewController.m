@@ -36,7 +36,7 @@ UITextField* versionTextField;
     if(@available(iOS 13.0, *)) {
         [self traitCollectionDidChange:nil];
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [UIColor grayColor];
     }
 
     char configver[1024];
@@ -62,7 +62,7 @@ UITextField* versionTextField;
 
     UIButton *button_play = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button_play setTitle:@"Play" forState:UIControlStateNormal];
-    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0, (height + 125.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
+    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0, (height + 250.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
     button_play.backgroundColor = [UIColor colorWithRed:54/255.0 green:176/255.0 blue:48/255.0 alpha:1.0];
     button_play.layer.cornerRadius = 5;
     [button_play setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
