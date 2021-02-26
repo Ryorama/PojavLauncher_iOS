@@ -74,7 +74,7 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
     
     UIImageView *logoView = [[UIImageView alloc]initWithFrame:CGRectMake(widthSplit, (height - 25.0) / 2.0, 1030.0 / 2, 125.0 / 2)];
     [logoView setImage:[UIImage imageNamed:@"logo.png"]];
-    [imgview setContentMode:UIViewContentModeScaleAspectFit];
+    [logoView setContentMode:UIViewContentModeScaleAspectFit];
     [self.view addSubview:logoView];
     
     UIButton *button_login_mojang = [UIButton buttonWithType:UIButtonTypeRoundedRect];
