@@ -34,7 +34,7 @@ UITextField* versionTextField;
 
     
     UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"launcher_background.png"] drawInRect:self.view.bounds];
+    [[UIImage imageNamed:@"login_background.png"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -63,7 +63,7 @@ UITextField* versionTextField;
 
     UIButton *button_play = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button_play setTitle:@"Play" forState:UIControlStateNormal];
-    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0, (height + 450.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
+    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0, (height + 550.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
     button_play.backgroundColor = [UIColor colorWithRed:54/255.0 green:176/255.0 blue:48/255.0 alpha:1.0];
     button_play.layer.cornerRadius = 5;
     [button_play setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
