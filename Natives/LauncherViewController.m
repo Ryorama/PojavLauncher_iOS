@@ -61,12 +61,23 @@ UITextField* versionTextField;
 
     UIButton *button_play = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button_play setTitle:@"Play" forState:UIControlStateNormal];
-    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0, (height + 650.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
+    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0 - 5.0, (height + 650.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
     button_play.backgroundColor = [UIColor colorWithRed:54/255.0 green:176/255.0 blue:48/255.0 alpha:1.0];
     button_play.layer.cornerRadius = 5;
     [button_play setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button_play addTarget:self action:@selector(launchMinecraft:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:button_play];
+    install_progress_text = [[UILabel alloc] initWithFrame:CGRectMake(120.0, height - 54.0, width - 124.0, 50.0)];
+    [scrollView addSubview:install_progress_text];
+    
+    UIButton *button_change_version = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button_change_version setTitle:@"Play" forState:UIControlStateNormal];
+    button_change_version.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0 - 5.0, (height + 650.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
+    button_change_version.backgroundColor = [UIColor colorWithRed:54/255.0 green:176/255.0 blue:48/255.0 alpha:1.0];
+    button_change_version.layer.cornerRadius = 5;
+    [button_change_version setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button_change_version addTarget:self action:@selector(changeMinecraftVersion) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:button_change_version];
     install_progress_text = [[UILabel alloc] initWithFrame:CGRectMake(120.0, height - 54.0, width - 124.0, 50.0)];
     [scrollView addSubview:install_progress_text];
 }
@@ -82,8 +93,32 @@ UITextField* versionTextField;
     callback_LauncherViewController_installMinecraft();
 }
 
+- (void)changeMinecraftVersion
+{
+    self.tableView = [self makeTableView];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"minecraftVersions"];
+    [self.view addSubview:self.tableView];
+}
+
 -(BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"minecraftVersions";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+//etc.
+return cell;
+}
+
+ -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
 }
 
 @end
