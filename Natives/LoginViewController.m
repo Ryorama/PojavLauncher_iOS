@@ -47,7 +47,6 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
 @implementation LoginViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
 
     [self setTitle:@"PojavLauncher"];
@@ -65,17 +64,13 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:scrollView];
-
-    if(@available(iOS 13.0, *)) {
-        [self traitCollectionDidChange:nil];
-    } else {
-        UIGraphicsBeginImageContext(self.view.frame.size);
-        [[UIImage imageNamed:@"login_background.png"] drawInRect:self.view.bounds];  
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-
-        self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-    }
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"login_background.png"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 
     CGFloat widthSplit = width / 4.0;
     
@@ -118,11 +113,14 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
 
 -(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection API_AVAILABLE(ios(13.0)) {
     if(@available(iOS 13.0, *)) {
-        if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-            self.view.backgroundColor = [UIColor blackColor];
-        } else {
-            self.view.backgroundColor = [UIColor whiteColor];
-        }
+        
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        [[UIImage imageNamed:@"login_background.png"] drawInRect:self.view.bounds];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+
+        self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+
     }
 }
 
