@@ -58,13 +58,14 @@ UITextField* versionTextField;
     install_progress_bar = [[UIProgressView alloc] initWithFrame:CGRectMake(4.0, height - 58.0, width - 8.0, 6.0)];
     [scrollView addSubview:install_progress_bar];
 
-    install_button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    install_button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth;
-    [install_button setTitle:@"Play" forState:UIControlStateNormal];
-    install_button.frame = CGRectMake(10.0, height - 54.0, 100.0, 50.0);
-    [install_button addTarget:self action:@selector(launchMinecraft:) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:install_button];
-    
+    UIButton *button_play = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button_play setTitle:@"Play" forState:UIControlStateNormal];
+    button_play.frame = CGRectMake(widthSplit + (width - widthSplit * 2.0) / 2.0 + 2.0, (height + 125.0) / 2.0 - 4.0 - 50.0, 120.0, 50.0);
+    button_play.backgroundColor = [UIColor colorWithRed:54/255.0 green:176/255.0 blue:48/255.0 alpha:1.0];
+    button_play.layer.cornerRadius = 5;
+    [button_play setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button_play addTarget:self action:@selector(launchMinecraft:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:button_play];
     install_progress_text = [[UILabel alloc] initWithFrame:CGRectMake(120.0, height - 54.0, width - 124.0, 50.0)];
     [scrollView addSubview:install_progress_text];
 }
