@@ -72,7 +72,7 @@ void loginAccountInput(UINavigationController *controller, int type, const char*
 
     CGFloat widthSplit = width / 4.0;
     
-    UIImageView *logoView = [[UIImageView alloc]initWithFrame:CGRectMake(widthSplit, (height + 50.0) / 2.0, 1030.0 / 2, 125.0 / 2)];
+    UIImageView *logoView = [[UIImageView alloc]initWithFrame:CGRectMake(widthSplit, (height - 100.0) / 2.0, 1030.0 / 2, 125.0 / 2)];
     [logoView setImage:[UIImage imageNamed:@"logo.png"]];
     [logoView setContentMode:UIViewContentModeScaleAspectFit];
     [self.view addSubview:logoView];
